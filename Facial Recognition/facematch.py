@@ -1,7 +1,7 @@
 from PIL import Image
 import face_recognition
 
-# Array for appending it to the list of known images
+# Encoding information of images
 list_known_face_encodings = []
 
 
@@ -28,22 +28,17 @@ def image_match(found_person_encodings, known_face_encodings):
             print("Not a Match")
 
 
-# Inserting multiple image path to the list
+# sample images
 list_lost = ['./known/diana.jpg', './known/boris.jpg', './known/obama.jpg', './known/donald.jpg', './known/hilary.jpg']
 
-# Calling function lost_person_image
-
+# Retrieve Encodings of known images
 for lost_img in list_lost:
     lost_person_image(lost_img)
 
-'''  
-print(list_known_face_encodings)
-for i in list_known_face_encodings:
-    print(f"Face Encodings {i}") '''
 
-# Found person image
+# Found person image /test image
 test_image = './unknown/donaldtest.jpg'
 found_person = found_person_image(test_image)
 
-# Running a match lost and found image
+# Run a match between lost and list of found images
 image_match(found_person, list_known_face_encodings)
